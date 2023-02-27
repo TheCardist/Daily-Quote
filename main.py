@@ -27,7 +27,7 @@ def send(contacts: list, emails: list):
 
         msg = EmailMessage()
         msg['Subject'] = "Random Quote and Note"
-        msg['From'] = 'dailyquotegenerator@gmail.com'
+        msg['From'] = 'email'
         msg['To'] = email
         msg.set_content("Plain Text")
         msg.add_alternative(f"""\
