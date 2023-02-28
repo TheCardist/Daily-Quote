@@ -6,6 +6,7 @@ import glob
 path = r'path/to/section'
 path2 = r'path/to/section2'
 
+# TODO: Walk through the entire folder path 1x instead of doing it twice for two separate areas.
 
 def get_quotes():
   """Go through all the files in my Vault looking for quotes and then randomly selecting one to send. All quotes are returned back to the main.py to then selection 1 randomly."""
