@@ -1,1 +1,1 @@
-Name Email@address.com
+Name, Email@address.com
