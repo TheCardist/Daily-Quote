@@ -3,6 +3,7 @@ import smtplib
 from email.message import EmailMessage
 from file_locator import FileLocator
 import keyring
+from datetime import date
 
 os.chdir('/home/chris/Desktop/DailyQuotes')
 
@@ -49,9 +50,14 @@ def send(contacts: list, emails: list, note: str, quote: dict):
 
 
 if __name__ == '__main__':
+    today = date.today()
     locator = FileLocator()
     note = locator.get_content(path='200 - Citadel', quote=False)
     quote = locator.get_content(
         path='400 - Archive/300 - Literature Notes', quote=True)
     contacts, emails = get_contacts()
     send(contacts, emails, note, quote)
+    with open('log_file.txt', 'w+') as f:
+        for line in note.splitlines():
+            f.write(f'Sent on {today} - {line})
+            break
