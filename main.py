@@ -5,13 +5,13 @@ from file_locator import FileLocator
 import keyring
 from datetime import date
 
-os.chdir('/home/chris/Desktop/DailyQuotes')
+os.chdir('/Desktop/DailyQuotes')
 
 
 def get_contacts() -> list[str]:
     addresses = []
 
-    with open(r'/home/chris/Desktop/DailyQuotes/contacts.txt', 'r') as contacts:
+    with open(r'Desktop/DailyQuotes/contacts.txt', 'r') as contacts:
         addresses = [contact.strip() for contact in contacts]
 
     contacts = [line.split(', ')[0] for line in addresses]
@@ -27,7 +27,7 @@ def send(contacts: list, emails: list, note: str, quote: dict):
 
         msg = EmailMessage()
         msg['Subject'] = "Random Quote and Note"
-        msg['From'] = 'dailyquotegenerator@gmail.com'
+        msg['From'] = '<email>'
         msg['To'] = email
         msg.set_content("Plain Text")
         msg.add_alternative(f"""\
